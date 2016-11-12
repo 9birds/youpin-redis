@@ -38,7 +38,7 @@ RUN set -ex \
         make \
     ' \
     && apt-get update \
-    && apt-get install -y $buildDeps --no-install-recommends \
+    && DEBIAN_FRONTEND="noninteractive" apt-get install -y $buildDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     \
     && wget -O redis.tar.gz "$REDIS_DOWNLOAD_URL" \
